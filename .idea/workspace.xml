@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e8ac49-2daf-47c7-ab46-e2e68698e2b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/introduction-to-angular/imgs/cool.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/introduction-to-angular/imgs/hidoggy.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/introduction-to-angular/imgs/ohno.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/introduction-to-angular/imgs/panic.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introduction-to-angular/index.html" afterPath="$PROJECT_DIR$/introduction-to-angular/index.html" />
     </list>
@@ -66,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/introduction-to-angular/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="263" column="141" lean-forward="true" selection-start-line="263" selection-start-column="141" selection-end-line="263" selection-end-column="141" />
+            <state relative-caret-position="184">
+              <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -80,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -121,8 +124,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/introduction-to-angular/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/introduction-to-angular/index.html" />
       </list>
     </option>
   </component>
@@ -172,28 +175,8 @@
             <path>
               <item name="talks" type="b2602c69:ProjectViewProjectNode" />
               <item name="talks" type="462c0819:PsiDirectoryNode" />
-              <item name="introduction-to-angular-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="talks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="talks" type="462c0819:PsiDirectoryNode" />
-              <item name="introduction-to-angular-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="animals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="talks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="talks" type="462c0819:PsiDirectoryNode" />
-              <item name="introduction-to-angular-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="animals" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="talks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="talks" type="462c0819:PsiDirectoryNode" />
-              <item name="introduction-to-angular-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="animals" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="introduction-to-angular" type="462c0819:PsiDirectoryNode" />
+              <item name="imgs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -237,12 +220,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519652324047</updated>
-      <workItem from="1519652326955" duration="20272000" />
+      <workItem from="1519652326955" duration="22223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20272000" />
+    <option name="totallyTimeSpent" value="22223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -253,7 +236,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -339,23 +322,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/introduction-to-angular/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="263" column="141" lean-forward="true" selection-start-line="263" selection-start-column="141" selection-end-line="263" selection-end-column="141" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#3;n#ul#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/introduction-to-angular/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
