@@ -98,57 +98,170 @@
 
 				<section>
 					<h2>Components</h2>
-					<ul>
+					<pre>
+						<code data-trim >
+							@Component({
+								selector: 'app-title',
+								template: `<h1>{{title}}</h1>`,
+								styles: []
+							})
+							export class TitleComponent implements OnInit {
+								title: string
 
-					</ul>
+								constructor() { }
+
+								ngOnInit() {
+									this.title = 'Hello world!'
+								}
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
 					<h2>Services</h2>
-					<ul>
+					<pre>
+						<code data-trim data-noescape>
+							import { Injectable } from '@angular/core';
 
-					</ul>
+							@Injectable()
+							export class AnimalService {
+								animals: Animal[] = [
+									{ type: 'dog', name: 'fido' },
+									{ type: 'cat', name: 'milo'},
+								]
+
+								constructor() { }
+
+								getAnimals(): Animal[] {
+									return this.animals
+								}
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
 					<h2>Routing</h2>
-					<ul>
+					<pre>
+						<code data-trim data-noescape>
+							const animalRoutes: Routes = [
+								{
+									path: 'animals',
+									component: AnimalContainerComponent
+									children: [
+										{ path: '', component: AnimalListComponent },
+										{ path: ':animalName', component: AnimalDetailsComponent }
+									]
+								}
+							]
+						</code>
+					</pre>
+				</section>
 
-					</ul>
+				<section>
+					<h2>Routing</h2>
+					<pre>
+						<code data-trim data-noescape>
+							RouterModule.forChild(animalRoutes)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Routing </h2>
+					<a>http://localhost:4200/animals </a> <- list of animals
+					<a>http://localhost:4200/animals/fido </a> <- details of fido
 				</section>
 
 				<section>
 					<h2>Protecting Routes</h2>
-					<ul>
+					<pre>
+						<code data-trim data-noescape>
+							const adminRoutes: Routes = [
+								{
+									path: 'admin',
+									component: AdminComponent
+									canActivate: [IsAdminGuard]
+								}
+							]
+						</code>
+					</pre>
+				</section>
 
-					</ul>
+				<section>
+					<h2>Protecting Routes</h2>
+					<pre>
+						<code data-trim data-noescape>
+							@Injectable()
+							export class IsAdminGuard implements CanActivate {
+								constructor(private userService: UserService) {}
+
+								canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+									return this.userService.get().isAdmin
+								}
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
 					<h2>Modules</h2>
-					<ul>
-
-					</ul>
+					<pre>
+						<code data-trim data-noescape>
+							@NgModule({
+								imports: [
+									BrowserModule
+									CommonModule,
+									RouterModule.forChild(animalRoutes),
+									RouterModule.forChild(adminRoutes)
+								],
+								declarations: [
+									AppModule,
+									TitleComponent,
+									AnimalContainerComponent,
+									AnimalListComponent,
+									AnimalDetailsComponent,
+									AdminComponent
+								],
+								providers: [AnimalService, UserService, IsAdminGuard]
+								bootstrap: [AppComponent]
+							})
+							export class AnimalAppModule {}
+						</code>
+					</pre>
 				</section>
 
 				<section>
 					<h2>Angular-cli</h2>
 					<ul>
-
+						<li>Perfect for starting your project</li>
+						<li>project generated in 4 commands</li>
+						<pre>
+							<code data-trim data-noescape>
+								npm install -g @angular/cli
+								ng new animals
+								cd animals
+								ng serve
+								App running on http://localhost:4200
+							</code>
+						</pre>
+						<li>Uses Webpack</li>
+						<li>Testing packages already configured</li>
+						<li>Support for production builds</li>
+						<li>Uglifies and minifies the build output</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Want to get started?</h2>
-					<ul>
-
-					</ul>
+					<p>Try the tutorial</p>
+					<a href="https://angular.io/tutorial">https://angular.io/tutorial</a>
 				</section>
+
 				<section>
 					<h2>#Finished</h2>
-					<ul>
-
-					</ul>
+					<p>find the talk and demo at: <a href="https://github.com/ReissJarvis/talks">https://github.com/ReissJarvis/talks</a></p>
 				</section>
 			</div>
 		</div>
@@ -161,11 +274,19 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                history: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+							hljs.configure({
+								tabReplace: '  '
+							})
+
+					    	hljs.initHighlightingOnLoad();
+						}
+					}
 				]
 			});
 		</script>
