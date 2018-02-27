@@ -1,0 +1,30 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#ffffff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect canvas="#0fffff" canvas-opacity="1" rx="18" id="svg_1" height="69" width="148" y="55.5" x="217" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="97.5" x="221.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Root Module</text>
+  <rect rx="18" id="svg_5" height="69" width="148" y="173.5" x="47.5" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_6" y="216.5" x="59.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Component</text>
+  <rect rx="18" id="svg_7" height="69" width="148" y="292.5" x="129.5" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_8" y="335.5" x="139.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Component</text>
+  <rect rx="18" id="svg_10" height="69" width="148" y="173.5" x="216.5" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="19" id="svg_11" y="215.5" x="222.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Feature Module</text>
+  <rect rx="18" id="svg_12" height="69" width="148" y="292.5" x="292.5" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_13" y="335.5" x="302.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Component</text>
+  <rect rx="18" id="svg_14" height="69" width="148" y="173.5" x="387.5" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_15" y="218.5" x="420.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Service</text>
+  <path stroke="#000" id="svg_16" d="m278.869999,148.251314l14.5,-18.4556l14.5,18.4556l-7.25,0l0,18.544404l-14.499999,0l0,-18.544404l-7.25,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+  <path transform="rotate(-34 381.3699951171875,146.2957153320312) " stroke="#000" id="svg_17" d="m366.87,146.25131l14.5,-18.4556l14.5,18.4556l-7.25,0l0,18.54441l-14.5,0l0,-18.54441l-7.25,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+  <path transform="rotate(31 204.36999511718753,146.29571533203122) " stroke="#000" id="svg_18" d="m189.87,146.25131l14.5,-18.4556l14.5,18.4556l-7.25,0l0,18.54441l-14.5,0l0,-18.54441l-7.25,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+  <path transform="rotate(29 262.36999511718744,266.29571533203125) " stroke="#000" id="svg_19" d="m247.87,266.25131l14.5,-18.4556l14.5,18.4556l-7.25,0l0,18.54441l-14.5,0l0,-18.54441l-7.25,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+  <path transform="rotate(-25 309.36999511718744,266.2957153320313) " stroke="#000" id="svg_20" d="m294.87,266.25131l14.5,-18.4556l14.5,18.4556l-7.25,0l0,18.54441l-14.5,0l0,-18.54441l-7.25,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
+ </g>
+</svg>
