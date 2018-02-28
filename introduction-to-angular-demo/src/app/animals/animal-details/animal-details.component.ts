@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+import { Animal, AnimalService } from '../animal.service'
 
 @Component({
   selector: 'app-animal-details',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalDetailsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: ActivatedRoute, private animalService: AnimalService) { }
+  animal: Animal
   ngOnInit() {
+    this.route.params
+      .subscribe(params => {
+        console.log(params)
+        this.animal = this.animalService.getAnimalByName(params.animalName)
+      })
   }
 
 }

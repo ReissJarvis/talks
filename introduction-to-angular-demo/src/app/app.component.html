@@ -2,6 +2,7 @@
   <mat-toolbar color="primary">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">Responsive App</h1>
+    <mat-checkbox class="isadmin-checkbox" (change)="updateIsAdmin($event)">Is Admin</mat-checkbox>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
@@ -10,7 +11,7 @@
       <mat-nav-list>
         <a mat-list-item routerLink="/"><mat-icon>home</mat-icon>Home</a>
         <a mat-list-item routerLink="animals"><mat-icon>list</mat-icon>Animals</a>
-        <a mat-list-item routerLink="."><mat-icon>lock</mat-icon>Admin</a>
+        <a mat-list-item routerLink="admin"><mat-icon>lock</mat-icon>Admin</a>
       </mat-nav-list>
     </mat-sidenav>
 

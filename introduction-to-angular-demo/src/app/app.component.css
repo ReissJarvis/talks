@@ -16,3 +16,8 @@
   margin:20px;
   box-sizing: content-box;
 }
+
+.isadmin-checkbox {
+  position: absolute;
+  right: 20px;
+}

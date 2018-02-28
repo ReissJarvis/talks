@@ -7,16 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './material.module'
 import { AnimalsModule } from './animals/animals.module';
 import { HomeComponent } from './home/home.component'
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { UserService } from './user.service';
+import { AdminComponent } from './admin/admin.component';
+import { IsAdminGuard } from './is-admin.guard'
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [IsAdminGuard] }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AnimalsModule
   ],
-  providers: [],
+  providers: [UserService, IsAdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

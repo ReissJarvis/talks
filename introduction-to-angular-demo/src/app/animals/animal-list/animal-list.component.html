@@ -1,3 +1,5 @@
-<p>
-  animal-list works!
-</p>
+<mat-list class="list" role="list">
+  <mat-list-item *ngFor="let animal of animals" role="listitem">
+    <a [routerLink]="[animal.name]">{{animal.name}}</a>
+  </mat-list-item>
+</mat-list>
