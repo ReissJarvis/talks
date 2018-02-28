@@ -1,38 +1,23 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-  <h1 class="example-app-name">Responsive App</h1>
-</mat-toolbar>
+<div class="page-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #snav mode="side"
-               fixedTopGap="56">
-    <mat-nav-list>
-      <a mat-list-item routerLink=".">Animals</a>
-    </mat-nav-list>
-  </mat-sidenav>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav mode="side"
+                 fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/"><mat-icon>home</mat-icon>Home</a>
+        <a mat-list-item routerLink="animals"><mat-icon>list</mat-icon>Animals</a>
+        <a mat-list-item routerLink="."><mat-icon>lock</mat-icon>Admin</a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-list>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-      <mat-list-item>
-        Im a list item
-      </mat-list-item>
-    </mat-list>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
 
 
