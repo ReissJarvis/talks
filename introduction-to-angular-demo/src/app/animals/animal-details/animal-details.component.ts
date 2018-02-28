@@ -14,7 +14,6 @@ export class AnimalDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe(params => {
-        console.log(params)
         this.animal = this.animalService.getAnimalByName(params.animalName)
       })
   }

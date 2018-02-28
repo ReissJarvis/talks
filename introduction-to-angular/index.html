@@ -102,6 +102,7 @@
 						<li>Forms module & form validation</li>
 						<li>Two-way Data binding</li>
 						<li>Lazy Loading</li>
+						<li>Observables</li>
 					</ul>
 				</section>
 
@@ -120,6 +121,7 @@
 						<li style="opacity: 0.2;">Forms module & form validation</li>
 						<li style="opacity: 0.2;">Two-way Data binding</li>
 						<li style="opacity: 0.2;">Lazy Loading</li>
+						<li style="opacity: 0.2;">Observables</li>
 					</ul>
 				</section>
 
@@ -144,10 +146,19 @@
 
 				<section>
 					<img src="imgs/typescript-diagram.png"/>
-					<p>Just a superset</p>
-					<p>Transpiles to JavaScript</p>
+					<p>Superset of Javascript</p>
 				</section>
-
+				<section>
+					<h2>
+						What we will cover
+					</h2>
+					<ul class="fragment">
+						<li>General Structure</li>
+						<li class="fragment">Components, modules, services, routing and touch on observables</li>
+						<li class="fragment">Aim to introduce the building blocks instead of advanced topics</li>
+						<li class="fragment">demo</li>
+					</ul>
+				</section>
 				<section>
 					<h2>Structure</h2>
 					<img src="imgs/structure.svg"/>
@@ -179,8 +190,6 @@
 					<h2>Services</h2>
 					<pre>
 						<code data-trim data-noescape>
-							import { Injectable } from '@angular/core';
-
 							@Injectable()
 							export class AnimalService {
 								animals: Animal[] = [
@@ -196,6 +205,19 @@
 							}
 						</code>
 					</pre>
+				</section>
+
+				<section>
+					<h2>Providing The Service</h2>
+					<pre>
+						<code data-trim data-noescape>
+							@NgModule({
+								<mark>providers: [AnimalService]</mark>
+							})
+							export class AnimalAppModule {}
+						</code>
+					</pre>
+					<p>Provide it at the highest module level you need to</p>
 				</section>
 
 				<section>
@@ -220,15 +242,55 @@
 					<h2>Import Routing</h2>
 					<pre>
 						<code data-trim data-noescape>
-							RouterModule.forChild(animalRoutes)
+							@NgModule({
+								<mark>imports: [RouterModule.forChild(animalRoutes)]</mark>
+							})
+							export class AnimalAppModule {}
+
 						</code>
 					</pre>
 				</section>
 
 				<section>
-					<h2>Routing </h2>
+					<h2>Routing</h2>
 					<a>http://localhost:4200/animals </a> <- list of animals
 					<a>http://localhost:4200/animals/fido </a> <- details of fido
+				</section>
+
+				<section>
+					<h2>route.params - Observables</h2>
+					<pre class="fragment">
+						<code>{ path: ':animalName', component: AnimalDetailsComponent }</code>
+					</pre>
+					<pre class="fragment">
+						<code data-trim >
+							this.route.params
+							  .subscribe(params => {
+									this.animal = this.animalService.getAnimalByName(params.animalName)
+							  })
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>route.params - breakdown</h2>
+					<pre class="fragment">
+						<code data-trim data-noescape>
+							this.route.params
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>route.params - breakdown</h2>
+					<pre class="fragment">
+						<code data-trim data-noescape>
+							.subscribe(params => {
+								this.animal = this.animalService.getAnimalByName(params.animalName)
+							})
+						</code>
+					</pre>
+
 				</section>
 
 				<section>
