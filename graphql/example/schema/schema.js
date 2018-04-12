@@ -14,7 +14,7 @@ module.exports = (db) => new GraphQLSchema({
 						defaultValue: null
 					}
 				},
-				resolve: (root, args) => db.collection('users').find(args.id ? {_id: args.id}: {}).toArray()
+				resolve: (root, args) => db.collection('users').find(args.id ? {_id: args.id} : {}).toArray()
 			},
 		})
 	})
