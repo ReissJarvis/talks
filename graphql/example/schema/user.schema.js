@@ -1,8 +1,6 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList} = require('graphql');
 
-
-module.exports = (db) => {
-	const UserType = new GraphQLObjectType({
+const UserType = module.exports = new GraphQLObjectType({
 		name: 'User',
 		description: 'Example User Table',
 		fields: () => ({
@@ -21,10 +19,7 @@ module.exports = (db) => {
 			friends: {
 				type: new GraphQLList(UserType),
 				description: 'List of users',
-				resolve: (user) => user.friends.map(id => db.collection('users').findOne({_id: id}))
+				resolve: (user, args, {db}) => user.friends.map(id => db.collection('users').findOne({_id: id}))
 			}
 		}),
 	})
-
-	return UserType
-}

@@ -27,7 +27,10 @@ return MongoClient.connect(url)
 		app.use(compression())
 
 		app.use('/graphql', graphqlHTTP({
-			schema: schema(db),
+			schema: schema,
+			context: {
+				db
+			},
 			graphiql: true,
 		}));
 
