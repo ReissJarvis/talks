@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Ava JS Talk</title>
+		<title>GraphQL Talk</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css">
@@ -27,7 +27,149 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>AvaJs</h2>
+					<h2>GraphQL</h2>
+					<img style="width:400px" src="imgs/graphql.svg">
+				</section>
+
+				<section>
+					<h2>Warning</h2>
+					<p class="fragment">Rob Gill Type & Schema Frustration zone</p>
+					<img class="fragment" src="imgs/thats-wrong.gif">
+				</section>
+
+				<section>
+					<img style="width:400px" src="imgs/come-at-me.gif">
+				</section>
+
+				<section>
+					<h2>What is GraphQL</h2>
+					<h3 class="fragment">"The Rest Killer"</h3>
+						<blockquote class="twitter-tweet tw-align-center" data-lang="en">
+							<p lang="en" dir="ltr">
+								<a href="https://twitter.com/hashtag/REST?src=hash&amp;ref_src=twsrc%5Etfw">#REST</a> APIs are now
+								<a href="https://twitter.com/hashtag/RestInPeace?src=hash&amp;ref_src=twsrc%5Etfw">#RestInPeace</a> APIs | Long live
+								<a href="https://twitter.com/hashtag/GraphQL?src=hash&amp;ref_src=twsrc%5Etfw">#GraphQL</a>
+							</p>&mdash; Samer Buna (@samerbuna)
+							<a href="https://twitter.com/samerbuna/status/644548922979954688?ref_src=twsrc%5Etfw">September 17, 2015</a>
+						</blockquote>
+					<small>Author for Pluralsight, Lynda, and O’Reilly and curator of http://jsComplete.com</small>
+				</section>
+
+				<section>
+					<h2>What is GraphQL - cont</h2>
+					<ul>
+						<li>Describe your data</li>
+						<li class="fragment">Ask for what you want</li>
+						<li class="fragment">Get Predictable Results</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Describe your data</h2>
+					<pre>
+						<code data-trim data-noescape>
+							type Project {
+							  name: String
+							  tagline: String
+							  contributors: [User]
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Ask for what you want</h2>
+					<pre>
+						<code data-trim data-noescape>
+							{
+								project(name: "GraphQL") {
+									tagline
+								}
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Get predictable results</h2>
+					<pre>
+						<code data-trim data-noescape>
+							{
+								"project": {
+									"tagline": "A query language for APIs"
+								}
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>What are we trying to solve</h2>
+					<p class="fragment">Rest APIs give us either too much or too little</p>
+					<p class="fragment">Multiple calls for linked resources</p>
+					<p class="fragment">interpretation of the REST Holy book which can cause long discussions</p>
+					<p class="fragment">or even worse.....</p>
+				</section>
+
+				<section>
+					<p>....custom method endpoints</p>
+					<img class="fragment" src="imgs/shudder.gif">
+				</section>
+
+				<section>
+					<p>Example</p>
+				</section>
+
+				<section>
+					<h2>Downsides</h2>
+					<ul class="fragment">
+						<li>Cannot list all fields (over fetching)</li>
+						<li class="fragment">Maintain a Schema</li>
+						<li class="fragment">Duplicate calls for data</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fix Duplication calls</h2>
+					<p> Facebook - Dataloader</p>
+					<a href="https://github.com/facebook/dataloader">GitHub</a>
+				</section>
+
+				<section>
+					<p>But i have already have built a huge restful API?</p>
+					<p class="fragment">Very practical to build into your current API</p>
+					<pre class="fragment">
+						<code data-trim data-noescape>
+							{
+								resolve: () => new Promise()
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							{
+								resolve: () => fetch('https://localhost:4000/users')
+													.then(res => res.json())
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Follow on watch/reads</h2>
+
+					<ul class="fragment">
+						<li><a href="http://graphql.org/learn/">GraphQL Learn Documentation</a></li>
+						<li class="fragment"><a href="https://www.youtube.com/watch?v=lAJWHHUz8_8">GraphQL Basics - Fun Fun Function</a></li>
+						<li class="fragment"><a href="https://www.youtube.com/watch?v=UBGzsb2UkeY">Zero to GraphQL in 30 Minutes – Steven Luscher</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fin.</h2>
+					<img src="imgs/any-questions.gif">
 				</section>
 			</div>
 		</div>
