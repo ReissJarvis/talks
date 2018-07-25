@@ -1,0 +1,30 @@
+{
+  "name": "ava-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mocha-load-test": "mocha ./mocha-vs-ava/mocha-tests.js",
+    "ava-load-test": "ava ./mocha-vs-ava/ava-tests.js -v",
+    "nyan": "ava ./simple-tests -t | tap-nyan",
+    "foo-tests": "ava ./simple-tests/title-matching.js --match='*foo*' -v",
+    "not-foo-tests": "ava ./simple-tests/title-matching.js --match='!*foo*' -v",
+    "plan": "ava ./simple-tests/test-plan.js -v",
+    "macro": "ava ./simple-tests/macro-test.js -v",
+    "snapshot": "ava ./simple-tests/snapshot-tests.js",
+    "snapshot-update": "ava ./simple-tests/snapshot-tests.js -u",
+    "magic-asserts":"ava ./simple-tests/magic-assert.js",
+    "ext": "ava ./simple-tests/extensions.js",
+    "test": "ava ./simple-tests/simple-examples.js -v"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "1.0.0-beta.6",
+    "mocha": "^5.2.0",
+    "tap-nyan": "^1.1.0"
+  },
+  "dependencies": {
+    "rxjs": "^6.2.2"
+  }
+}
