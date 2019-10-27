@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Core Technical Overview</h2>
+				</section>
+
+				<section>
+					<h2>Topics</h2>
+					<ul>
+						<li>Overview of services</li>
+						<li class="fragment">Breakdown of certain services</li>
+						<li class="fragment">Current flow</li>
+						<li class="fragment">Questions</li>
+					</ul>
+				</section>
+				<section data-transition="slide none">
+					<img src="./imgs/overview1.svg"/>
+				</section>
+				<section data-transition="none slide">
+					<img src="./imgs/overview.svg"/>
+				</section>
+				<section>
+					<h2>Gateway</h2>
+					<ul>
+						<li>In a few projects, proxies the request to the api or client</li>
+						<li class="fragment">Creates a single entry for the cluster</li>
+						<li class="fragment">logs out requests / responses</li>
+						<li class="fragment">Gathers metrics for prometheus/grafana (response codes / response times)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>RabbitMQ</h2>
+					<ul>
+						<li>Queueing system</li>
+						<li class="fragment">Used as a tool to mitigate long running tasks that may slow down response times</li>
+						<li class="fragment">Used with MassTransit to auto handle consuming/retry/failure</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Comparable/US</h2>
+					<ul>
+						<li>Started as a small service to handle comparables</li>
+						<li class="fragment">Used more as a domain boundry for USA focused features</li>
+						<li class="fragment">contains proxy for SE/MLS/PR Api's</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Notification</h2>
+					<ul>
+						<li>Ipad Port of call</li>
+						<li class="fragment">Runs mostly off queued messages</li>
+						<li class="fragment">can accept http requests</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Flow</h2>
+					<img src="./imgs/flow.svg"/>
+				</section>
+				<section>
+					<h2>Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+							hljs.configure({
+								tabReplace: '  '
+							})
+
+					    	hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>AvaJS Talk</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="/imgs/galaxy.jpg">
+					<h1>TestX/Testla</h1>
+					<h4>Futuristic JavaScript Testing With AVA</h4>
+				</section>
+
+				<section>
+					<h2>Me - Reiss Jarvis</h2>
+					<img style="width: 40%; float: left; background: none; border: none" src="imgs/reiss-monkey.png"/>
+					<ul style="width: 50%; float: left; padding-left: 10px; list-style: none">
+						<li><i class="fas fa-user"></i> Software Developer @ eTech</li>
+						<li><i class="fas fa-heart"></i> Javascript & Node</li>
+						<li><i class="fas fa-heart"></i> Angular</li>
+						<li style="border-bottom: solid white 1px; margin-top: 5px; margin-bottom: 5px;"></li>
+						<li><i class="fab fa-twitter-square"></i> @reissefer </li>
+						<li><i class="fab fa-github-square"></i> @reissjarvis </li>
+						<li><i class="fas fa-code"></i> reissjarvis.co.uk</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide-in none">
+					<h2>What is AVA JS</h2>
+					<img class="fragment" src="imgs/js_testing.webp"/>
+				</section>
+
+				<section data-transition="none">
+					<h2>What is AVA JS</h2>
+					<img src="/imgs/galaxy.jpg"/>
+				</section>
+
+				<section data-transition="none slide-out">
+					<h2>What is AVA JS</h2>
+					<img src="imgs/elon_musk.jpg"/>
+					<img class="fragment"
+						 style="position: absolute;
+								transform: translate(-100%,-10%) rotate(20deg);
+								border: none;
+								background: none;
+								width: 800px;"
+						 src="imgs/avajs.png"/>
+				</section>
+
+				<section>
+					<h2>What is AVA JS</h2>
+					<ul>
+						<li>
+							Minimal and fast
+						</li>
+						<li>
+							Runs tests concurrently
+						</li>
+						<li>
+							Enforces writing atomic tests
+						</li>
+						<li>
+							Very opinionated
+						</li>
+						<li>
+							Supports TypeScript
+						</li>
+						<li>
+							Supports Tap Reporter
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<pre>
+						<code data-trim data-noescape>
+							import test from 'ava';
+
+							test('arrays are equal', t => {
+								t.deepEqual([1, 2], [1, 2]);
+							});
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>The Usual</h2>
+					<ul>
+						<li>Before and after (With Context)</li>
+						<li>Supports callbacks/promises/async-await/observables</li>
+						<li>Usual array of asserts (deepEqual, is, truthy, falsey)</li>
+						<li>Supports Snapshot testing introduced by jest</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Context</h2>
+					<pre>
+						<code data-trim data-noescape>
+							test.before(t => {
+								t.context = 'unicorn';
+							});
+
+							test('context is unicorn', t => {
+								t.is(t.context, 'unicorn');
+							});
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Magic Asserts</h2>
+					<p>Adds clean diffs for actual and expected</p>
+				</section>
+
+				<section>
+					<h2>Matching</h2>
+					<p>Run tests only with matching titles</p>
+					<pre>
+						<code data-trim data-noescape>
+							ava --match='*foo'
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Plans</h2>
+					<p>Plan how many assertions should be called</p>
+					<pre>
+						<code data-trim data-noescape>
+							t.plan(3);
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>.only, .skip, .todo and .failing</h2>
+					<ul>
+						<li class="fragment">.only will only run that test - great for development</li>
+						<li class="fragment">.skip will skip that test</li>
+						<li class="fragment">.todo will mock out tests that need to be written</li>
+						<li class="fragment">.failing will mark the test as an expected fail and wont break the build</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>they really mean....</h2>
+					<ul>
+						<li class="fragment">.only for when you dont care about other tests</li>
+						<li class="fragment">.skip when you cant be bothered to fix the test and see if anyone will notice</li>
+						<li class="fragment">.todo to show there was an attempt</li>
+						<li class="fragment">.failing to acknowledge you have broken it but you don't care</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Macros</h2>
+					<p>
+						Additional arguments passed to the test declaration will be passed to the test implementation.
+						This is useful for creating reusable test macros
+					</p>
+				</section>
+
+				<section>
+					<h2>Snapshots</h2>
+					<a href="https://jestjs.io/docs/en/snapshot-testing">Jest Snapshot</a>
+					<ul>
+						<li>Assert against a file.</li>
+						<li>Update when code changes / structure (run manually)</li>
+						<li>Controversial <span class="fragment">(maybe)</span></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Mocha vs AVA load testing</h2>
+				</section>
+				<section>
+					<h2> Thanks for listening</h2>
+					<ul>
+						Links
+						<li><a href="https://github.com/avajs/ava">AVA Github</a></li>
+						<li><a href="https://github.com/ReactiveX/rxjs">RxJs Github</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+							hljs.configure({
+								tabReplace: '  '
+							})
+
+					    	hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+		</script>
+	</body>
+</html>
