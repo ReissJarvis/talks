@@ -34,7 +34,11 @@ import createTheme from 'spectacle/lib/themes/default';
 const images = {
   formidagon: require('../assets/formidable-logo.svg'),
   goodWork: require('../assets/good-work.gif'),
-  explosion: require('../assets/gifs/explosion.gif')
+  explosion: require('../assets/gifs/explosion.gif'),
+  reissMonkey: require('../assets/imgs/reiss-monkey.png'),
+  robotBattery: require('../assets/gifs/robot-battery.gif'),
+  unsubscribe: require('../assets/gifs/unsubscribe.gif'),
+  rubbish: require('../assets/gifs/rubbish.gif')
 };
 
 // Require CSS
@@ -91,23 +95,41 @@ export default class Presentation extends React.Component {
             <Image src={images.explosion} width={500} />
           </Appear>
         </Slide>
-
+        <Slide>
+          <Heading size={3}>Etiquette</Heading>
+          <Text>Ask away - in it for the long haul</Text>
+          <Text>Let Me know if you want an example of anything</Text>
+        </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>
               Overview
           </Heading>
           <List>
-            <ListItem>What is an observable</ListItem>
+            <ListItem>Observables: What it is, what it looks like</ListItem>
             <ListItem>Observables vs Promises vs Functions</ListItem>
             <ListItem>Pipes</ListItem>
             <ListItem>Subjects</ListItem>
-            <ListItem>Dont forget to unsubscribe</ListItem>
+            <ListItem>Unsubscribe</ListItem>
+            <ListItem>Code examples</ListItem>
             <ListItem>Common mistakes</ListItem>
-            <ListItem>Some useful patterns</ListItem>
           </List>
         </Slide>
 
         <Slide>
+            <Heading size={3} textColor="tertiary" caps>Me</Heading>
+            <Layout>
+                <Fill width="70%">
+                    <List>
+                        <ListItem>US Core Lead</ListItem>
+                        <ListItem>Frontend frameworks</ListItem>
+                        <ListItem>Anything javascript</ListItem>
+                        <ListItem>Craft Beer</ListItem>
+                    </List>
+                </Fill>
+                <Fill>
+                  <Image src={images.reissMonkey} width={300} />
+                </Fill>
+            </Layout>
 
         </Slide>
 
@@ -253,7 +275,7 @@ export default class Presentation extends React.Component {
           <Heading>Benefits</Heading>
           <List>
             <Appear>
-              <ListItem>Support for stream of values</ListItem>
+              <ListItem>Supports a stream of values</ListItem>
             </Appear>
             <Appear>
               <ListItem>Cancelable</ListItem>
@@ -265,28 +287,40 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>
+          <Heading size={3} textColor="tertiary">
             Pipes & Operators
           </Heading>
 
+          <Image src={images.robotBattery} width={500}/>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} textColor="tertiary">
+            Pipes & Operators - What?
+          </Heading>
+
           <List>
-            <ListItem>Pipe is a function to chain operators together</ListItem>
+            <ListItem>.pipe() chains operators together</ListItem>
             <ListItem>Operators are pure functions</ListItem>
-            <ListItem>Pipeable Operators / creation operators</ListItem>
-            <ListItem>operators are the most powerful part of observables</ListItem>
+            <ListItem>Operators are the most powerful part of observables</ListItem>
           </List>
         </Slide>
 
         <Slide>
-          <Heading>
-            Pipes & Operators
+          <Heading size={3} textColor="tertiary">
+            Operators - Types
           </Heading>
 
           <List>
-            <ListItem>Pipe is a function to chain operators together</ListItem>
-            <ListItem>Operators are pure functions</ListItem>
-            <ListItem>Pipeable Operators / creation operators</ListItem>
-            <ListItem>operators are the most powerful part of observables</ListItem>
+            <ListItem>Creation</ListItem>
+            <ListItem>Combination</ListItem>
+            <ListItem>Conditional</ListItem>
+            <ListItem>Conditional</ListItem>
+            <ListItem>Error Handling</ListItem>
+            <ListItem>Multicasting</ListItem>
+            <ListItem>Filtering</ListItem>
+            <ListItem>Transformation</ListItem>
+            <ListItem>Utility</ListItem>
           </List>
         </Slide>
 
@@ -304,6 +338,23 @@ export default class Presentation extends React.Component {
             { loc: [17, 24] },
           ]}>
         </CodeSlide>
+
+        <Slide>
+          <Heading size={3} textColour="tertiary">
+            Creation Operators
+          </Heading>
+
+          <CodePane style="font-size:20px" lang="javascript" source={"of(1,2,3,4,5);\nfrom([1,2,3,4,5]);\nfromEvent(document, 'click');\najax('URLHERE')"}/>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} textColour="tertiary">
+            Popular Operators
+          </Heading>
+
+          <CodePane style="font-size:20px" lang="javascript" source={"map((value) => newValue);\nswitchMap((value) => Observable);\nflatMap((value) => Observable);"}/>
+        </Slide>
+
         <Slide>
           <Heading>Who Wants to be an operator?</Heading>
         </Slide>
@@ -320,14 +371,15 @@ export default class Presentation extends React.Component {
             Unsubscribe
           </Heading>
 
+          <Image src={images.unsubscribe} width={500}/>
         </Slide>
 
         <Slide>
           <Heading textColor="tertiary" size={5}>
             Unsubscribe - Why?
           </Heading>
-          <Text>Memory leaks</Text>
-          <Text>Garbage collections thinks its still in use</Text>
+          <Text margin="20px">Memory leaks</Text>
+          <Image src={images.rubbish} width={500}/>
         </Slide>
 
         <Slide>
@@ -354,72 +406,54 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>
-            Patterns
+          <Heading textColor="tertiary" size={5}>
+            Unsubscribe - takeUntil word of warning
           </Heading>
-
+          <Text>Do it as low as possible down the .pipe() chain</Text>
         </Slide>
 
         <Slide>
-          <Heading>
-            Pitfalls
-          </Heading>
-
-        </Slide>
-        <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
-          </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" fit bold>
-            open the presentation/index.js file to get started
-          </Text>
-        </Slide>
-        <Slide bgColor="secondary">
-          <Image src={images.formidagon} width={800} />
-        </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
-          </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
+          <Heading textColor="tertiary" size={5}>
+            Unsubscribe - Angular saving the day
           </Heading>
           <List>
-            <ListItem bulletStyle="star">Item 1</ListItem>
-            <ListItem bulletStyle="cross">Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
+            <ListItem>
+              Async pipes
+            </ListItem>
+            <ListItem>
+              Route params
+            </ListItem>
+            <ListItem>
+              HttpClient
+            </ListItem>
           </List>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite margin="10px 0 0 30px">Author</Cite>
-          </BlockQuote>
+
+        <Slide>
+          <Heading>
+            Examples
+          </Heading>
+
+        </Slide>
+
+        <Slide>
+          <Heading>
+            Common Mistakes
+          </Heading>
+          <List>
+            <ListItem>
+              forkJoin - all observables need to complete before a value is emitted
+            </ListItem>
+            <ListItem>
+              subscribing to another observable inside a subscribe - use flatMap/switchMap
+            </ListItem>
+            <ListItem>
+              misunderstanding pipes - read the documentation
+            </ListItem>
+          </List>
         </Slide>
         <Slide>
-          <Image src={images.goodWork} width={500} />
-          <Notes>gifs work too</Notes>
+          <Heading size={3}></Heading>
         </Slide>
       </Deck>
     );

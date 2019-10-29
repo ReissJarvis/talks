@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Todo's
+      <mat-spinner *ngIf="todoService.loading$ | async"  style="display: inline-block" [diameter]="30" [strokeWidth]="3"></mat-spinner>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list *ngIf="todos$ | async as todos;">
+      <mat-list-item *ngFor="let todo of todos">
+        {{todo.title}}
+        <mat-checkbox style="margin-left: 10px" [checked]="todo.completed">
+
+        </mat-checkbox>
+        <button mat-icon-button (click)="add"><mat-icon>delete</mat-icon></button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput [disabled]="todoService.loading$ | async" placeholder="Title" [formControl]="todoTitleControl"/>
+        </mat-form-field>
+        <button mat-icon-button [disabled]="!todoTitleControl.valid || todoService.loading$ | async" (click)="add(todoTitleControl.value)"><mat-icon>addition</mat-icon></button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

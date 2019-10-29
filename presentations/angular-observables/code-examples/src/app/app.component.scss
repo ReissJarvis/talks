@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.app-name {
+  margin-left: 8px;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+.mat-nav-list > a {
+  padding: 5px 15px 5px 10px;
+}
+
+.mat-nav-list > a  .mat-icon {
+  margin-right: 5px;
+}
+
+.mat-sidenav-content {
+  padding: 20px;
+}

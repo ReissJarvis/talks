@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Unsubscribe</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      The value is: {{value | async}}
+    </p>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button (click)="emitNewValue()">Emit Value</button>
+    <button mat-flat-button (click)="emitUnsubscribe()">Unsubscribe</button>
+    <button mat-flat-button (click)="reset()">Reset</button>
+  </mat-card-actions>
+</mat-card>

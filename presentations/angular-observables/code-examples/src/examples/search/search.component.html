@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Search BrewDog Beer</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content style="max-height: calc(100vh - 175px); overflow-y: auto;">
+    <mat-form-field>
+      <input matInput [formControl]="searchTerm" placeholder="Beer Name"/>
+    </mat-form-field>
+
+    <div class="container" *ngIf="!(loading | async); else spinner">
+      <app-beer-card  style="margin-bottom: 20px; "*ngFor="let beer of (beers | async)" [beer]="beer">
+
+      </app-beer-card>
+
+      <p *ngIf="(beers | async).length == 0">
+        No beers found
+      </p>
+    </div>
+
+    <ng-template #spinner>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
