@@ -15,7 +15,6 @@ export class AppComponent implements OnDestroy{
     { title: "Unsubscribe", path: "/unsubscribe", icon: 'power_off'},
     { title: "Entity Repo", path: "/entity-pattern", icon: 'storage'},
     { title: "Search", path: "/search", icon: 'search'},
-    { title: "Unsubscribe", path: "."},
   ];
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
