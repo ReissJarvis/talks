@@ -6,10 +6,10 @@ export class TakeUntilUnsubscribeComponent implements OnInit, OnDestroy {
         new Observable(subscriber => {
             subscriber.next("VALUE")
         })
-            .pipe(
-                takeUntil(this.unsubscribe)
-            )
-            .subscribe(value => console.log(value))
+        .pipe(
+            takeUntil(this.unsubscribe)
+        )
+        .subscribe(value => console.log(value))
     }
 
     ngOnDestroy(): void {

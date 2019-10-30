@@ -23,7 +23,9 @@ import {
   TableItem,
   CodePane,
   Layout,
-  Fill
+  Fill,
+  Fit,
+  S
 } from 'spectacle';
 
 import CodeSlide from 'spectacle-code-slide';
@@ -32,13 +34,19 @@ import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-  formidagon: require('../assets/formidable-logo.svg'),
   goodWork: require('../assets/good-work.gif'),
   explosion: require('../assets/gifs/explosion.gif'),
   reissMonkey: require('../assets/imgs/reiss-monkey.png'),
   robotBattery: require('../assets/gifs/robot-battery.gif'),
   unsubscribe: require('../assets/gifs/unsubscribe.gif'),
-  rubbish: require('../assets/gifs/rubbish.gif')
+  rubbish: require('../assets/gifs/rubbish.gif'),
+  questions: require('../assets/gifs/questions.gif'),
+  wave: require('../assets/gifs/wave.gif'),
+  order: require('../assets/gifs/order.gif'),
+  delicious: require('../assets/gifs/delicious.gif'),
+  getout: require('../assets/gifs/getout.gif'),
+  disorder: require('../assets/gifs/disorder.gif'),
+  excited: require('../assets/gifs/overexcited.gif')
 };
 
 // Require CSS
@@ -72,6 +80,12 @@ export default class Presentation extends React.Component {
           <Text margin="10px 0 0" textColor="tertiary" fit bold>
               Deep dive into Observables, patterns and pit falls
           </Text>
+          <Appear>
+            <Text textSize={24}>* With Bercow gifs</Text>
+          </Appear>
+          <Appear>
+            <Image src={images.disorder} width={500} />
+          </Appear>
         </Slide>
 
         <Slide bgColor="quartenary">
@@ -88,19 +102,25 @@ export default class Presentation extends React.Component {
           <Appear>
             <BlockQuote>
               <Quote>Built in Spectacle</Quote>
-              <Cite margin="10px 0 0 30px">ReactJS based Presentation Library</Cite>
+              <Cite margin="10px 0 0 30px">ReactJS based Presentation Library built by Formidable</Cite>
             </BlockQuote>
           </Appear>
           <Appear>
             <Image src={images.explosion} width={500} />
           </Appear>
         </Slide>
+
         <Slide>
-          <Heading size={3}>Etiquette</Heading>
-          <Text>Ask away - in it for the long haul</Text>
-          <Text>Let Me know if you want an example of anything</Text>
+          <Heading size={3} textColor="tertiary" caps>Etiquette</Heading>
+          <List>
+            <ListItem>Ask away - a challenge to challenge</ListItem>
+            <ListItem>I can "try" to code some explanations if needed</ListItem>
+          </List>
+
+          <Image src={images.questions} width={500} />
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+
+        <Slide bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>
               Overview
           </Heading>
@@ -111,7 +131,7 @@ export default class Presentation extends React.Component {
             <ListItem>Subjects</ListItem>
             <ListItem>Unsubscribe</ListItem>
             <ListItem>Code examples</ListItem>
-            <ListItem>Common mistakes</ListItem>
+            <ListItem>Common bad habits</ListItem>
           </List>
         </Slide>
 
@@ -133,14 +153,19 @@ export default class Presentation extends React.Component {
 
         </Slide>
 
-        <Slide fit bgColor="quartenary">
-          <Heading size={6} textColor="secondary" lineHeight={1} caps>
+        <Slide>
+          <Heading size={6} textColor="tertiary" lineHeight={1} caps>
             Observables
           </Heading>
 
-          <Text margin="20px 0 20px 0 " textColor="tertiary" fit bold>
+          <Text margin="20px 0 20px 0 " fit bold>
             Observables are lazy Push collections of multiple values
           </Text>
+
+          <Text margin="20px 0 20px 0 "  fit bold>
+            Part of RxJS - Functional approach to deal with events
+          </Text>
+          <Image src={images.excited} width={500} />
         </Slide>
 
         <CodeSlide
@@ -333,7 +358,7 @@ export default class Presentation extends React.Component {
             { loc: [4, 24]},
             { loc: [4, 16], note: "Observable with pipeable filter operator" },
             { loc: [17, 24], note: "Array with filter method" },
-            { loc: [0, 4], note: "Pure function to where even numbers return true" },
+            { loc: [0, 4], note: "Pure function where even numbers return true" },
             { loc: [4, 16] },
             { loc: [17, 24] },
           ]}>
@@ -363,7 +388,20 @@ export default class Presentation extends React.Component {
             Subjects
           </Heading>
           <CodePane margin="20px 0 0 30px" style="font-size:20px" lang="javascript"
-                    source={"var subject = new Subject();\nsubject.subscribe(value => console.log(value);\nsubject.next('VALUE');"}/>
+                    source={"var subject = new Subject();\n\nsubject.subscribe(value => console.log(value);\n//Ouput: 1\n\nsubject.next(1);"}/>
+        </Slide>
+
+        <Slide>
+          <Heading size={6}>
+            Subjects - Types
+          </Heading>
+
+          <List>
+            <ListItem>Subject</ListItem>
+            <ListItem>Behaviour Subject</ListItem>
+            <ListItem>Reply Subject</ListItem>
+            <ListItem>Async Subject</ListItem>
+          </List>
         </Slide>
 
         <Slide>
@@ -409,7 +447,8 @@ export default class Presentation extends React.Component {
           <Heading textColor="tertiary" size={5}>
             Unsubscribe - takeUntil word of warning
           </Heading>
-          <Text>Do it as low as possible down the .pipe() chain</Text>
+          <Text>Do it at the very end of the .pipe() chain</Text>
+          <Image src={images.order} width={300} />
         </Slide>
 
         <Slide>
@@ -433,27 +472,43 @@ export default class Presentation extends React.Component {
           <Heading>
             Examples
           </Heading>
-
+          <Image src={images.delicious} width={500} />
         </Slide>
 
         <Slide>
-          <Heading>
-            Common Mistakes
+          <Heading textColor="tertiary" size={5}>
+            Common bad habits
           </Heading>
           <List>
-            <ListItem>
-              forkJoin - all observables need to complete before a value is emitted
+            <ListItem textSize={32}>
+              "forkJoin" completion misunderstanding
             </ListItem>
-            <ListItem>
-              subscribing to another observable inside a subscribe - use flatMap/switchMap
+            <ListItem textSize={32}>
+              Misunderstanding pipes - read the documentation
             </ListItem>
-            <ListItem>
-              misunderstanding pipes - read the documentation
+            <ListItem textSize={32}>
+              Subscribing in a subscribe
+            </ListItem>
+            <ListItem textSize={32}>
+              Subscribe & assign
             </ListItem>
           </List>
         </Slide>
+
         <Slide>
-          <Heading size={3}></Heading>
+          <Heading size={3}>Thanks!</Heading>
+          <List>
+            <ListItem textSize={32}>
+              <S type="bold">Slides & code:</S> github.com/reissjarvis
+            </ListItem>
+            <ListItem textSize={32}>
+              <S type="bold">Spectacle:</S> https://github.com/FormidableLabs/spectacle
+            </ListItem>
+            <ListItem textSize={32}>
+              <S type="bold">learn RxJS:</S> https://www.learnrxjs.io/
+            </ListItem>
+          </List>
+          <Image src={images.wave} width={500} />
         </Slide>
       </Deck>
     );
