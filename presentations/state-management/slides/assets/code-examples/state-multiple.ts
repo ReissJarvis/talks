@@ -1,7 +1,7 @@
 @Component({
     selector: 'app-state-simple-parent',
     template: `
-        <app-state-simple-child [loading]="loading" (onLoadingToggle)="loading = !!loading">
+        <app-state-simple-child [loading]="loading" (onLoadingToggle)="loading = !loading">
         </app-state-simple-child> 
     `
 })

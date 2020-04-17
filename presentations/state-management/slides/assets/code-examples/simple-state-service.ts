@@ -18,6 +18,6 @@ export class SimpleService {
     loading$ = this._loading$.asOservable()
 
     toggleLoading() {
-        this._loading$.next(!!this._loading$.value)
+        this._loading$.next(!this._loading$.value)
     }
 }

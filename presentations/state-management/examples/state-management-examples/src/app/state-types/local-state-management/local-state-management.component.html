@@ -1,0 +1,12 @@
+<div *ngIf="(vmService.baseModel$ | async) as vm">
+  <app-input-output-child [todos]="vm.todos"
+                          (addTodo)="vmService.addTodo$.next($event)"
+                          (updatedTodo)="vmService.updateTodo$.next($event)"
+                          (deletedTodo)="vmService.deleteTodo$.next($event)">
+
+  </app-input-output-child>
+
+  <div>
+    {{ vm | json}}
+  </div>
+</div>

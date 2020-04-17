@@ -1,0 +1,12 @@
+<div *ngIf="(todoState$ | async) as state">
+  <app-input-output-child [todos]="state.todos"
+                          [processing]="state.processing"
+                          (addTodo)="addTodo($event)"
+                          (updatedTodo)="updateTodo($event)"
+                          (deletedTodo)="deleteTodo($event)">
+  </app-input-output-child>
+
+  <div>
+    {{ state | json}}
+  </div>
+</div>

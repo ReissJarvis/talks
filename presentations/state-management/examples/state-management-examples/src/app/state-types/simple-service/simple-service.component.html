@@ -1,0 +1,6 @@
+<app-input-output-child [todos]="todoStateService.todos$ | async"
+                        (addTodo)="todoStateService.add($event)"
+                        (updatedTodo)="todoStateService.update($event)"
+                        (deletedTodo)="todoStateService.delete($event.id)">
+
+</app-input-output-child>

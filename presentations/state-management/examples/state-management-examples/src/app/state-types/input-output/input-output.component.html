@@ -1,0 +1,7 @@
+<app-input-output-child *ngIf="!loading" [todos]="todos"
+                        (addTodo)="addTodo($event)"
+                        (deletedTodo)="deleteTodo($event)"
+                        (updatedTodo)="updateTodo($event)" style="margin: 10px; box-sizing: border-box; display: block">
+</app-input-output-child>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

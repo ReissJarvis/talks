@@ -33,7 +33,6 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   goodWork: require('../assets/good-work.gif'),
-  explosion: require('../assets/gifs/explosion.gif'),
   reissMonkey: require('../assets/imgs/reiss-monkey.png'),
   reduxGraph: require('../assets/imgs/redux_graph.png'),
   fluxGraph: require('../assets/imgs/flux_graph.png'),
@@ -46,10 +45,9 @@ const images = {
   questions: require('../assets/gifs/questions.gif'),
   wave: require('../assets/gifs/wave.gif'),
   order: require('../assets/gifs/order.gif'),
-  delicious: require('../assets/gifs/delicious.gif'),
-  getout: require('../assets/gifs/getout.gif'),
-  disorder: require('../assets/gifs/disorder.gif'),
-  excited: require('../assets/gifs/overexcited.gif')
+  powerPoint: require('../assets/gifs/office-powerpoint.gif'),
+  facebookNotifications: require('../assets/imgs/facebook-notifications.jpg'),
+  thatsScrum: require('../assets/gifs/thats-scrum.gif')
 };
 
 // Require CSS
@@ -105,7 +103,7 @@ export default class Presentation extends React.Component {
           </Appear>
 
           <Appear>
-            <Image src={images.explosion} width={500} />
+            <Image src={images.powerPoint} width={500} />
           </Appear>
         </Slide>
 
@@ -114,11 +112,25 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>Ask away - a challenge to challenge</ListItem>
             <ListItem>I can "try" to code some explanations if needed</ListItem>
-            <ListItem>Not a talk about "we're doing it wrong", more of a how can we improve</ListItem>
+            <ListItem>Not a "we're doing it wrong" talk, more of a how can we improve / start a Conversation </ListItem>
           </List>
 
           <Image src={images.questions} width={500} />
         </Slide>
+
+        <Slide>
+          <Heading size={3} textColor="tertiary" caps>Overview</Heading>
+          <List>
+            <ListItem>Change Detection</ListItem>
+            <ListItem>What is state</ListItem>
+            <ListItem>Input/Output example</ListItem>
+            <ListItem>Service State</ListItem>
+            <ListItem>What state management solves</ListItem>
+            <ListItem>NGRX example</ListItem>
+            <ListItem>Smaller alternative to NGRX</ListItem>
+          </List>
+        </Slide>
+
 
         <Slide bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>
@@ -161,6 +173,31 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor="primary" textColor="tertiary">
+          <Heading size={6} textColor="secondary" caps>
+            Should we stop using change detection?
+          </Heading>
+
+          <Appear>
+            <List textColor="secondary">
+              <ListItem>No, its not possible.</ListItem>
+              <Appear>
+                <ListItem>Just stop relying on it</ListItem>
+              </Appear>
+
+              <Appear>
+                <ListItem>Take control of when and how something happens</ListItem>
+              </Appear>
+
+              <Appear>
+                <ListItem>Stop changing data by reference, make it immutable and use functions to update it</ListItem>
+              </Appear>
+
+            </List>
+          </Appear>
+
+        </Slide>
+
+        <Slide bgColor="primary" textColor="tertiary">
           <Heading size={6} margin="20px 0 20px 0">
             What is state?
           </Heading>
@@ -169,7 +206,7 @@ export default class Presentation extends React.Component {
           </Text>
 
           <Appear>
-            <Text textSize={24} textColor="tertiary">* could be a side effect</Text>
+            <Text textSize={24} textColor="tertiary">* could be side effects</Text>
           </Appear>
         </Slide>
 
@@ -211,7 +248,7 @@ export default class Presentation extends React.Component {
               <Appear>
                 <List>
                   <ListItem>Dont want a long chain of input / outputs</ListItem>
-                  <ListItem>Prone to missing an output / input</ListItem>
+                  <ListItem>Prone to missing an input / output</ListItem>
                   <ListItem>Hard to test</ListItem>
                   <ListItem>business logic can be spread out at different levels, no single <b>SOURCE OF TRUTH</b></ListItem>
                   <ListItem>Prone to building mutated state within children</ListItem>
@@ -242,24 +279,42 @@ export default class Presentation extends React.Component {
         />
 
         <Slide bgColor="primary" textColor="tertiary">
+          <Heading size={6} margin="20px 0 20px 0">
+            Can we go from further from here?
+          </Heading>
+
           <Appear>
             <div>
-              <Heading size={6}>
-                Can we go from further from here?
-              </Heading>
 
               <Appear>
-                <List>
-                  <ListItem>How do you manage the whole application?</ListItem>
-                  <ListItem>Components in view should have access to all state from above (user info / config)</ListItem>
-                  <ListItem>How do you manage complex features like wizards?</ListItem>
-                  <ListItem>Where is my single <b>SOURCE OF TRUTH</b>?</ListItem>
-                </List>
+                <Text>We want to see the whole state of the application</Text>
               </Appear>
+
+              <Appear>
+                <Text>We want to know what the state of a user looks like</Text>
+              </Appear>
+
+              <Appear>
+                <Text>We want to manage highly complex state like wizards</Text>
+              </Appear>
+
+              <Appear>
+                <Text>We want to know what our <b>SOURCE OF TRUTH</b> is</Text>
+              </Appear>
+
             </div>
           </Appear>
         </Slide>
 
+        <Slide bgColor="primary">
+          <Heading size={6} textColor="tertiary">
+            What problems are we trying to solve?
+          </Heading>
+
+          <Appear>
+            <Image src={images.facebookNotifications} width={500} />
+          </Appear>
+        </Slide>
 
         <Slide bgColor="primary">
           <Appear>
@@ -291,16 +346,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor="primary" textColor="tertiary">
-          <Heading fit size={6}>
-            What does it look like? - Cont
-          </Heading>
-
-          <Appear>
-            <Image src={images.fluxGraph} width={700} />
-          </Appear>
-        </Slide>
-
-        <Slide bgColor="primary" textColor="tertiary">
           <Heading size={6}>
             Cons
           </Heading>
@@ -324,7 +369,7 @@ export default class Presentation extends React.Component {
             <List fit>
               <ListItem><b>SINGLE SOURCE OF TRUTH</b> - know where your changes go through</ListItem>
               <ListItem>drive changes off user behaviour</ListItem>
-              <ListItem>Use observables to send updates across the application</ListItem>
+              <ListItem>You can send updates across the application</ListItem>
               <ListItem>Testable - test state between actions</ListItem>
             </List>
           </Appear>
@@ -352,8 +397,8 @@ export default class Presentation extends React.Component {
             <List fit>
               <ListItem>Concept of Ephemeral-State in components - Michael Hladky</ListItem>
               <ListItem>Scope state-management into feature areas</ListItem>
-              <ListItem>Nice way to strange towards global state management</ListItem>
-              <ListItem>scope to smart container component</ListItem>
+              <ListItem>Nice way to strangle towards global state management</ListItem>
+              <ListItem>scope to smart container components / services</ListItem>
             </List>
           </Appear>
 
@@ -372,7 +417,7 @@ export default class Presentation extends React.Component {
           <Appear>
             <List fit>
               <ListItem>dispatch <u>State Slices</u> to update state object</ListItem>
-              <ListItem>handle <u>Side effects</u> like dispatching of route params</ListItem>
+              <ListItem>handle <u>Side effects</u> like route params updating</ListItem>
               <ListItem>Use <u>Selectors</u> to query the data you need</ListItem>
               <ListItem>Ability to easily <u>Unsubscribe</u></ListItem>
               <ListItem>keep the benefits of Redux/Flux</ListItem>
@@ -384,7 +429,7 @@ export default class Presentation extends React.Component {
           <Heading>
             Examples
           </Heading>
-          <Image src={images.delicious} width={500} />
+          <Image src={images.thatsScrum} width={500} />
         </Slide>
 
         <Slide>
@@ -396,24 +441,66 @@ export default class Presentation extends React.Component {
             Experiences so far
           </Heading>
           <List textSize={32}>
-            <ListItem>
-              Better control of whats happening
-            </ListItem>
-            <ListItem>
-              Composition is easier, easy to add extra properties
-            </ListItem>
-            <ListItem>
-              Easier testing, only need to test the output state
-            </ListItem>
-            <ListItem>
-              driving off user behaviours means we think about what the user will want to see
-            </ListItem>
-            <ListItem>
-              refactoring means either merging actions or assigning a new action to change state
-            </ListItem>
-            <ListItem>
-              Easy to track down dispatch of actions based on where they are used
-            </ListItem>
+            <Appear>
+              <ListItem>
+                Better control of whats happening
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                Easier testing, only need to test the state at the end of the actions
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                driving off user behaviours means we think about what the user will want to see
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                refactoring means either merging or adding new subjects
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                Easy to find source of bugs
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading textColor="tertiary" size={5}>
+            Key points
+          </Heading>
+          <List textSize={32}>
+            <Appear>
+              <ListItem>
+                Build for reactivity, top => down
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                Dont mutate references, change and send updates
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                You need state management, no matter the size of application
+              </ListItem>
+            </Appear>
+
+            <Appear>
+              <ListItem>
+                Observables are scary, but are insanely powerful
+              </ListItem>
+            </Appear>
           </List>
         </Slide>
 
@@ -425,9 +512,6 @@ export default class Presentation extends React.Component {
             </ListItem>
             <ListItem textSize={32}>
               <S type="bold">Spectacle:</S> https://github.com/FormidableLabs/spectacle
-            </ListItem>
-            <ListItem textSize={32}>
-              <S type="bold">learn RxJS:</S> https://www.learnrxjs.io/
             </ListItem>
           </List>
           <Image src={images.wave} width={500} />
