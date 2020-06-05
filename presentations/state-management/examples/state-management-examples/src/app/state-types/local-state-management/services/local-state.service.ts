@@ -21,6 +21,7 @@ import {
   shareReplay
 } from 'rxjs/operators'
 import { pipeFromArray } from 'rxjs/internal/util/pipe'
+import { UnaryFunction } from 'rxjs/src/internal/types';
 
 export function select<T>(...ops: OperatorFunction<T, any>[]) {
   return pipe(
@@ -29,6 +30,16 @@ export function select<T>(...ops: OperatorFunction<T, any>[]) {
     distinctUntilChanged(),
     shareReplay(1)
   )
+}
+
+
+type StateSelectorFn<T, R> = (state: T) => R;
+export function createSelector<T, R>(optFnOrMap: OperatorFunction<T, R>[] | StateSelectorFn<T, R>): OperatorFunction<T, R>[] {
+  if (Array.isArray(optFnOrMap)) {
+    return optFnOrMap
+  }
+
+  return
 }
 
 @Injectable()

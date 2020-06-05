@@ -4,4 +4,4 @@ export interface AppState {
   todos: TodoState;
 }
 
-export const todoStateSelector = (state: AppState) => state.todos;
+export const todoStateSelector = (state: TodoState) => state.todos

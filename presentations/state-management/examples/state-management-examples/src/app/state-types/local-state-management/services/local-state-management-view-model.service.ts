@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs';
 import { LocalStateService } from './local-state.service';
 import { Todo } from '../../../shared/to-dos/models/todo.model';
 import { TodoService } from '../../../shared/to-dos/services/todo.service';
-import { flatMap, map, tap, withLatestFrom } from 'rxjs/operators';
-import { newArray } from '@angular/compiler/src/util';
+import { filter, flatMap, map, tap, withLatestFrom } from 'rxjs/operators';
+
 
 export interface TodoState {
   loading?: boolean;
@@ -28,6 +28,8 @@ export class LocalStateManagementViewModelService extends LocalStateService<Todo
 
     this.setupStates();
 
+    this.select(map((state: TodoState) => state.todos))
+      .pipe(filter((todos: Todo[]) => todos.includes({})))
     this.loadTodos$.next();
   }
 
